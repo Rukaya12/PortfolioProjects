@@ -12,12 +12,6 @@ FromPortfolioProject.dbo.NashvilleHousing
 
 
 
-*******************************************************************************************************
-
-
-
-
-
 
 --Standardize Date Format
 
