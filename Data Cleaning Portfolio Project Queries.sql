@@ -13,7 +13,7 @@ FromPortfolioProject.dbo.NashvilleHousing
 
 
 
---Standardize Date Format
+## Standardize Date Format
 
 
 
@@ -41,7 +41,7 @@ SET SaleDateConverted = CONVERT(Date,SaleDate)
  --------------------------------------------------------------------------------------------------------------------------
 
 
---Populate Property Address data
+## Populate Property Address data
 
 
 Select*
@@ -74,7 +74,8 @@ Where a.PropertyAddress is null
 
 
 --------------------------------------------------------------------------------------------------------------------------
---- Breaking out Address into Individual Columns (Address, City, State)
+
+## Breaking out Address into Individual Columns (Address, City, State)
 
 select PropertyAddress
 from my_First_portfolio_project..[Nashville house data cleaning ]
@@ -103,6 +104,9 @@ select *
 from my_First_portfolio_project..[Nashville house data cleaning ]
 
 -----------------------------------------------------------------------------------------------------------------------------------
+## Breaking out CITY AND STATE into Individual Columns ( City, State) USING PARSENAME 
+
+
 
 
 Select OwnerAddress
@@ -150,7 +154,7 @@ from my_First_portfolio_project..[Nashville house data cleaning ]
 
 ------------------------------------------------------------------------------------------------------------------------------
 
------- Change Y and N to Yes and No in "Sold as Vacant" field
+## Change Y and N to Yes and No in "Sold as Vacant" field
 
 
 
@@ -177,7 +181,7 @@ set SoldAsVacant =  case when  SoldAsVacant = 'N' then 'No'
    
    
 -------------------------------------------------------------------------------------------------------------------------
--- Remove Duplicates
+## Remove Duplicates
 
 
 WITH row_numCTE AS(
@@ -193,18 +197,21 @@ Select *,
 					) row_num
 
 From my_First_portfolio_project..[Nashville house data cleaning ]
---order by ParcelID
+
+	
 )
 Select *
 From row_numCTE
 Where row_num > 1
-Order by PropertyAddress
 
+
+select *
+from my_First_portfolio_project..[Nashville house data cleaning ]
 
 -----------------------------------------------------------------------------------------------
 
 
--- Delete Unused Columns
+## Delete Unused Columns
 
 
 
